@@ -1,0 +1,16 @@
+{
+  "title": "Telehealth Consultations",
+  "desc": "Convenient video or phone consultations from the comfort of your home — available for existing patients.",
+  "detail": "Telehealth appointments are available for existing patients. Medicare rebates apply in line with standard consultation fees. Please note: if you are a new patient or have not attended face-to-face within 12 months, an in-clinic visit is required first.",
+  "fullDesc": "Telehealth allows you to consult with your GP from the comfort and safety of your home via video or phone. This is especially convenient for follow-up consultations, prescription renewals, test result discussions, and ongoing mental health support. Medicare rebates apply to telehealth consultations based on the appointment day and time — the same as face-to-face visits. Note: Telehealth is available for existing patients who have attended our clinic in the last 12 months.",
+  "image": "https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=1200&h=500&fit=crop&auto=format",
+  "features": [
+    "Video consultations",
+    "Phone consultations",
+    "Follow-up appointment support",
+    "Prescription renewals (where appropriate)",
+    "Mental health consultations",
+    "Test result discussions"
+  ],
+  "order": 9
+}

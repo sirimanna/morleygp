@@ -1,0 +1,16 @@
+{
+  "title": "Referrals & Specialist Care",
+  "desc": "Prompt referrals to specialists and allied health professionals across all medical disciplines.",
+  "detail": "We maintain strong relationships with a broad network of specialists in Perth. Our GPs provide detailed referral letters and follow up on specialist feedback to ensure seamless, coordinated care.",
+  "fullDesc": "When specialist care is needed, our GPs act as your advocates and coordinators. We have established relationships with a wide network of specialists across Perth — from cardiologists and dermatologists to orthopaedic surgeons and psychiatrists. We provide thorough, detailed referral letters and ensure you understand your diagnosis and treatment pathway. We follow up on specialist feedback to keep your care seamlessly coordinated.",
+  "image": "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=1200&h=500&fit=crop&auto=format",
+  "features": [
+    "Specialist referral letters",
+    "Allied health referrals (physio, psychology)",
+    "Radiology & pathology requests",
+    "Hospital liaison & admissions",
+    "Second opinion facilitation",
+    "Care coordination & follow-up"
+  ],
+  "order": 11
+}

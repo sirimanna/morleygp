@@ -1,0 +1,13 @@
+{
+  "name": "Dr Essam Botros",
+  "credentials": "MBBS, FRACGP, Certificate in Dermoscopy, Certificate in Primary Skin Cancer Surgery",
+  "photo": "https://cdn.prod.website-files.com/669b229698fc3ab33c655893/66a82833533e6e143e75ff6b_Dr_Essam_Botros_-GP-.jpg",
+  "gender": "Male",
+  "languages": ["English", "Arabic"],
+  "bio": "Dr Botros is a dedicated and caring doctor with many years of experience treating and caring for patients. He believes in a holistic approach to an individual's health and is a Fellow of the Royal Australian College of General Practitioners (FRACGP). The many patients under his care highly regard him.",
+  "detailedBio": "Dr Essam Botros holds additional certificates in Dermoscopy and Primary Skin Cancer Surgery, making him particularly well-suited to skin cancer checks and minor surgical procedures. He has extensive experience in family medicine, chronic disease management, and men's health. Dr Botros, while committed to patient care, does not offer telehealth consults or handle paperwork. He is deeply committed to helping patients maintain their health and well-being and looks forward to providing the care and support each patient needs.",
+  "interests": ["Skin Cancer Checks & Excisions", "Paediatrics – Children's Health", "Family Medicine", "Women's and Men's Health", "Chronic Disease Management", "Mental Health"],
+  "billingNote": "Dr Essam Botros bulk bills patients with a valid Pensioner Card who are over 60, and children under 12.",
+  "telehealth": false,
+  "order": 2
+}

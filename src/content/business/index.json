@@ -1,0 +1,29 @@
+{
+  "clinicName": "Morley General Practice",
+  "slogan": "Your Health, Our Priority",
+  "introduction": "Morley General Practice provides compassionate, comprehensive healthcare for individuals and families in Perth's northern suburbs. Expert GPs, convenient location.",
+  "logo": null,
+  "phone": "(08) 9275 7755",
+  "email": "admin@morleygp.com.au",
+  "address": "26 McGilvray Ave, Morley WA 6062",
+  "abn": "",
+  "hotdocUrl": "https://www.hotdoc.com.au",
+  "healthengineUrl": null,
+  "social": {
+    "facebook": null,
+    "instagram": null,
+    "linkedin": null,
+    "youtube": null
+  },
+  "seo": {
+    "title": "Morley General Practice | GP Clinic in Morley, Perth WA",
+    "description": "Compassionate GP care for Morley and Perth's northern suburbs. Bulk billing available, open 7 days. Book online via HotDoc.",
+    "ogImage": null
+  },
+  "hours": [
+    { "label": "Monday – Friday", "time": "8:30 am – 5:30 pm", "closed": false },
+    { "label": "Saturday", "time": "8:30 am – 12:30 pm", "closed": false },
+    { "label": "Sunday", "time": "9:00 am – 12:00 pm", "closed": false },
+    { "label": "Public Holidays", "time": "Closed", "closed": true }
+  ]
+}

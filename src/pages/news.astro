@@ -1,0 +1,81 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/ui/PageHero.astro';
+import { getArticles, getSite } from '../lib/content';
+
+const articles = await getArticles();
+const site = await getSite();
+const featured = articles.find((a) => a.featured) ?? articles[0];
+const rest = articles;
+const catColor = (c: string) =>
+  ["Health Tips", "Preventive Health", "Mental Health"].includes(c) ? '#8865A9' : '#3B6EC9';
+---
+
+<Layout
+  title="News & Health Tips | Morley General Practice"
+  description="Clinic updates, health tips, and important information from the team at Morley General Practice."
+>
+  <PageHero
+    eyebrow="News & Health Tips"
+    title="Latest News"
+    subtitle="Stay informed with health tips, clinic updates, and important information from our team at Morley General Practice."
+  />
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-14 sm:py-20">
+    {featured && (
+      <div class="mb-16">
+        <a href={`/news/${featured.slug}`} class="block rounded-3xl overflow-hidden shadow-xl border border-gray-100 grid lg:grid-cols-2 group">
+          <div class="relative overflow-hidden h-64 lg:h-auto min-h-[280px]">
+            {featured.image && <img src={featured.image} alt={featured.title} class="w-full h-full object-cover" />}
+            <div class="absolute inset-0 bg-gradient-to-r from-black/30 to-transparent"></div>
+            <span class="absolute top-5 left-5 text-white text-xs font-bold px-3 py-1.5 rounded-full" style={`background: ${catColor(featured.category)}`}>★ Featured</span>
+          </div>
+          <div class="p-8 sm:p-10 flex flex-col justify-center">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="text-xs font-bold px-3 py-1 rounded-full text-white" style={`background: ${catColor(featured.category)}`}>{featured.category}</span>
+              <span class="text-xs text-gray-400">{featured.date} · {featured.readTime}</span>
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-black text-gray-900 mb-4 leading-tight group-hover:text-[#3B6EC9] transition-colors">{featured.title}</h2>
+            <p class="text-gray-500 leading-relaxed mb-6 text-sm sm:text-base">{featured.excerpt}</p>
+            <span class="self-start gradient-bg text-white px-6 py-3 rounded-full font-bold text-sm shadow-md">Read More</span>
+          </div>
+        </a>
+      </div>
+    )}
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
+      {rest.map((article) => (
+        <a href={`/news/${article.slug}`} class="group bg-white border border-gray-100 rounded-2xl overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col">
+          <div class="relative overflow-hidden h-48">
+            {article.image && <img src={article.image} alt={article.title} loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />}
+            <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+            <span class="absolute bottom-3 left-3 text-white text-xs font-bold px-3 py-1 rounded-full" style={`background: ${catColor(article.category)}`}>{article.category}</span>
+          </div>
+          <div class="p-6 flex flex-col flex-1">
+            <div class="text-xs text-gray-400 mb-3">{article.date} · {article.readTime}</div>
+            <h3 class="font-extrabold text-gray-900 text-base mb-3 leading-snug group-hover:text-[#3B6EC9] transition-colors">{article.title}</h3>
+            <p class="text-gray-500 text-sm leading-relaxed flex-1 mb-5">{article.excerpt}</p>
+            <span class="self-start text-sm font-semibold text-[#3B6EC9] flex items-center gap-1.5">
+              Read More
+              <svg viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+            </span>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <div class="mt-20 gradient-bg rounded-3xl p-10 sm:p-14 text-center relative overflow-hidden">
+      <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at center, white 1px, transparent 1.5px); background-size: 30px 30px;"></div>
+      <div class="relative z-10">
+        <h3 class="text-2xl sm:text-3xl font-black text-white mb-3">Have a Health Concern?</h3>
+        <p class="text-white/80 text-base mb-8 max-w-md mx-auto">Don't wait, book an appointment with one of our experienced GPs today.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          {site.hotdocUrl && (
+            <a href={site.hotdocUrl} target="_blank" rel="noopener noreferrer" class="bg-white text-[#3B6EC9] px-9 py-3.5 rounded-full font-extrabold shadow-xl hover:scale-105 transition-all duration-200">Book Now on HotDoc</a>
+          )}
+          <a href="/contact" class="bg-white/15 border border-white/30 text-white px-9 py-3.5 rounded-full font-bold hover:bg-white/25 transition-all duration-200">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

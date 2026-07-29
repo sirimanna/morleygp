@@ -1,0 +1,16 @@
+{
+  "title": "Aged Care",
+  "desc": "Home visits, residential aged care support, advanced care planning, and palliative care coordination.",
+  "detail": "We provide compassionate care for older patients, including home visit coordination, aged care facility support, and assistance with advanced care directives and end-of-life planning.",
+  "fullDesc": "We are committed to providing compassionate, dignified care for older members of our community. Our GPs support elderly patients both in-clinic and in residential aged care facilities. We assist families with Advanced Care Planning (ACP), ensuring your wishes are documented and respected. Our team also coordinates palliative care, medication management reviews, and falls risk assessments to support healthy, safe ageing.",
+  "image": "https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?w=1200&h=500&fit=crop&auto=format",
+  "features": [
+    "Residential aged care visits",
+    "Advanced Care Planning",
+    "Palliative care coordination",
+    "Medication management reviews",
+    "Falls risk assessment",
+    "Carer & family support"
+  ],
+  "order": 12
+}

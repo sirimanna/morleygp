@@ -1,0 +1,16 @@
+{
+  "title": "Vaccinations",
+  "desc": "Childhood and adult immunisations, travel vaccines, flu shots, and COVID-19 vaccinations per Australia's schedule.",
+  "detail": "We administer the full range of vaccines on Australia's National Immunisation Program, plus travel vaccines and annual influenza shots. Book early for flu season — vaccine stocks are limited.",
+  "fullDesc": "Vaccination is one of the most effective tools we have in preventing serious illness. At Morley General Practice, we administer the full range of vaccines on Australia's National Immunisation Program for children and adults. We also offer annual flu vaccinations, travel health consultations with destination-specific vaccines, and COVID-19 boosters. Our nurses and GPs ensure vaccinations are administered safely and comfortably.",
+  "image": "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=1200&h=500&fit=crop&auto=format",
+  "features": [
+    "National Immunisation Program (NIP)",
+    "Annual influenza vaccination",
+    "COVID-19 boosters",
+    "Travel vaccines (Hep A, Typhoid, etc.)",
+    "Shingles & pneumococcal vaccines",
+    "Meningococcal vaccination"
+  ],
+  "order": 7
+}

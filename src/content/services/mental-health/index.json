@@ -1,0 +1,16 @@
+{
+  "title": "Mental Health",
+  "desc": "Mental health care plans, anxiety and depression management, counselling referrals, and crisis support.",
+  "detail": "Our GPs are trained to support mental health conditions including anxiety, depression, PTSD, and more. We can create Mental Health Care Plans (MHCPs) providing up to 10 rebated psychology sessions per year.",
+  "fullDesc": "Mental health is just as important as physical health, and we are committed to providing accessible, stigma-free mental health support. Our GPs can prepare Mental Health Care Plans (MHCPs) that entitle eligible patients to Medicare-subsidised sessions with a psychologist, social worker, or occupational therapist. We approach mental health with empathy and non-judgement, working with you to find the right pathway to feeling better.",
+  "image": "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=1200&h=500&fit=crop&auto=format",
+  "features": [
+    "Mental Health Care Plans (MHCP)",
+    "Up to 20 rebated psychology sessions/year",
+    "Anxiety & depression management",
+    "Stress & burnout support",
+    "PTSD & trauma-informed care",
+    "Crisis assessment & referral"
+  ],
+  "order": 5
+}

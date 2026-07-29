@@ -1,0 +1,88 @@
+{
+  "rows": [
+    {
+      "type": "Standard Consult – Level B",
+      "time": "Mon–Fri 8:00am – 4:30pm",
+      "fee": "$90",
+      "rebate": "$45.05",
+      "oop": "$44.95"
+    },
+    {
+      "type": "Long Consult – Level C",
+      "time": "Mon–Fri 8:00am – 4:30pm",
+      "fee": "$140",
+      "rebate": "$87.10",
+      "oop": "$52.90"
+    },
+    {
+      "type": "Prolonged Consult – Level D",
+      "time": "Mon–Fri 8:00am – 4:30pm",
+      "fee": "$180",
+      "rebate": "$128.35",
+      "oop": "$51.65"
+    },
+    {
+      "type": "Standard Consult – Level B",
+      "time": "Mon–Fri 4:30pm onwards",
+      "fee": "$100",
+      "rebate": "$45.05",
+      "oop": "$54.95"
+    },
+    {
+      "type": "Long Consult – Level C",
+      "time": "Mon–Fri 4:30pm onwards",
+      "fee": "$160",
+      "rebate": "$87.10",
+      "oop": "$72.90"
+    },
+    {
+      "type": "Prolonged Consult – Level D",
+      "time": "Mon–Fri 4:30pm onwards",
+      "fee": "$200",
+      "rebate": "$128.35",
+      "oop": "$71.65"
+    },
+    {
+      "type": "Standard Consult – Level B",
+      "time": "Saturday 8:00am – 12:30pm",
+      "fee": "$105",
+      "rebate": "$45.05",
+      "oop": "$59.95"
+    },
+    {
+      "type": "Long Consult – Level C",
+      "time": "Saturday 8:00am – 12:30pm",
+      "fee": "$155",
+      "rebate": "$87.10",
+      "oop": "$67.90"
+    },
+    {
+      "type": "Prolonged Consult – Level D",
+      "time": "Saturday 8:00am – 12:30pm",
+      "fee": "$205",
+      "rebate": "$128.35",
+      "oop": "$76.65"
+    },
+    {
+      "type": "A/H Standard Consult",
+      "time": "Sat 1:00pm+, Sun & Public Holidays",
+      "fee": "$120",
+      "rebate": "$58.65",
+      "oop": "$61.35"
+    },
+    {
+      "type": "A/H Long Consult",
+      "time": "Sat 1:00pm+, Sun & Public Holidays",
+      "fee": "$185",
+      "rebate": "$100.55",
+      "oop": "$84.45"
+    },
+    {
+      "type": "A/H Prolonged Consult",
+      "time": "Sat 1:00pm+, Sun & Public Holidays",
+      "fee": "$245",
+      "rebate": "$140.95",
+      "oop": "$104.05"
+    }
+  ]
+}

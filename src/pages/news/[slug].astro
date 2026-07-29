@@ -1,0 +1,81 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getArticles, getSite } from '../../lib/content';
+
+export async function getStaticPaths() {
+  const articles = await getArticles();
+  return articles.map((article) => ({
+    params: { slug: article.slug },
+    props: { article, articles },
+  }));
+}
+
+const { article, articles } = Astro.props;
+const site = await getSite();
+const more = articles.filter((a) => a.slug !== article.slug).slice(0, 3);
+const catColor = (c: string) =>
+  ["Health Tips", "Preventive Health", "Mental Health"].includes(c) ? '#8865A9' : '#3B6EC9';
+---
+
+<Layout title={`${article.title} | Morley General Practice`} description={article.excerpt}>
+  <!-- Hero -->
+  <div class="pt-40 sm:pt-48 pb-24 sm:pb-28 gradient-bg relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at center, white 1px, transparent 1.5px); background-size: 30px 30px;"></div>
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
+      <nav class="flex items-center gap-2 text-white/60 text-xs font-medium mb-8">
+        <a href="/" class="hover:text-white transition-colors">Home</a>
+        <span>/</span>
+        <a href="/news" class="hover:text-white transition-colors">News</a>
+        <span>/</span>
+        <span class="text-white/90 truncate">{article.title}</span>
+      </nav>
+      <div class="flex items-center gap-3 mb-5">
+        <span class="text-xs font-bold px-3 py-1 rounded-full text-white" style={`background: ${catColor(article.category)}`}>{article.category}</span>
+        <span class="text-xs text-white/70">{article.date} · {article.readTime}</span>
+      </div>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight max-w-3xl">{article.title}</h1>
+    </div>
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" class="absolute bottom-0 left-0 right-0 w-full h-12 sm:h-16 fill-white">
+      <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z"/>
+    </svg>
+  </div>
+
+  <article class="max-w-3xl mx-auto px-4 sm:px-6 py-14 sm:py-20">
+    {article.image && (
+      <div class="rounded-2xl overflow-hidden shadow-xl h-64 sm:h-96 mb-10">
+        <img src={article.image} alt={article.title} class="w-full h-full object-cover" />
+      </div>
+    )}
+    <p class="text-lg text-gray-700 leading-relaxed font-medium mb-6">{article.excerpt}</p>
+    <div class="prose-content text-gray-600 leading-relaxed space-y-4">
+      {article.body.split('\n').filter(Boolean).map((para) => <p>{para}</p>)}
+    </div>
+
+    <div class="mt-10 flex flex-wrap gap-4">
+      {site.hotdocUrl && (
+        <a href={site.hotdocUrl} target="_blank" rel="noopener noreferrer" class="gradient-bg text-white px-7 py-3 rounded-full font-bold text-sm shadow-md hover:scale-105 transition-all duration-200">Book an Appointment</a>
+      )}
+      <a href="/news" class="border border-gray-200 text-gray-700 px-7 py-3 rounded-full font-bold text-sm hover:border-[#3B6EC9] hover:text-[#3B6EC9] transition-colors">← Back to News</a>
+    </div>
+  </article>
+
+  {more.length > 0 && (
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 pb-20">
+      <h2 class="text-2xl font-black text-gray-900 mb-8">More Articles</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-7">
+        {more.map((a) => (
+          <a href={`/news/${a.slug}`} class="group bg-white border border-gray-100 rounded-2xl overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col">
+            <div class="relative overflow-hidden h-40">
+              {a.image && <img src={a.image} alt={a.title} loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />}
+              <span class="absolute bottom-3 left-3 text-white text-xs font-bold px-3 py-1 rounded-full" style={`background: ${catColor(a.category)}`}>{a.category}</span>
+            </div>
+            <div class="p-5 flex flex-col flex-1">
+              <div class="text-xs text-gray-400 mb-2">{a.date}</div>
+              <h3 class="font-extrabold text-gray-900 text-sm leading-snug group-hover:text-[#3B6EC9] transition-colors">{a.title}</h3>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  )}
+</Layout>

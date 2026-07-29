@@ -1,0 +1,45 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/ui/PageHero.astro';
+import ServiceCard from '../components/ui/ServiceCard.astro';
+import { getServices, getSite } from '../lib/content';
+
+const services = await getServices();
+const site = await getSite();
+---
+
+<Layout
+  title="Our Services | Morley General Practice"
+  description="Comprehensive GP services in Morley, Perth: general health, women's and children's health, chronic disease management, mental health, skin cancer checks, vaccinations and more."
+>
+  <PageHero
+    eyebrow="What We Offer"
+    title="Our Services"
+    subtitle="Comprehensive healthcare for every stage of life, from routine check-ups to specialised treatment."
+  >
+    {site.hotdocUrl && (
+      <a slot="cta" href={site.hotdocUrl} target="_blank" rel="noopener noreferrer"
+        class="inline-block bg-white text-[#3B6EC9] px-9 py-4 rounded-full font-extrabold text-base shadow-2xl hover:scale-105 transition-all duration-200">
+        Book an Appointment
+      </a>
+    )}
+  </PageHero>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {services.map((service) => (
+        <ServiceCard slug={service.slug} title={service.title} desc={service.desc} />
+      ))}
+    </div>
+
+    <div class="mt-12 gradient-bg-soft rounded-3xl p-8 flex flex-col sm:flex-row items-center gap-6">
+      <div class="w-14 h-14 gradient-bg rounded-2xl flex items-center justify-center flex-shrink-0 text-white text-2xl shadow-md">💳</div>
+      <div>
+        <h3 class="font-bold text-gray-900 text-lg mb-1">Bulk Billing Available</h3>
+        <p class="text-gray-600 text-sm leading-relaxed">
+          We bulk bill children under 12 on weekdays between 8:30am and 4:00pm. Concession card holders and eligible patients may also qualify. Please call us or check our <a href="/patient-info" class="text-[#3B6EC9] font-semibold hover:underline">Patient Info & Fees</a> page for details.
+        </p>
+      </div>
+    </div>
+  </div>
+</Layout>

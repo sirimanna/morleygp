@@ -1,0 +1,39 @@
+---
+import { getTeam } from '../../lib/content';
+import SectionHeading from '../ui/SectionHeading.astro';
+import DoctorCard from '../ui/DoctorCard.astro';
+
+// Doctors are managed in Keystatic (/keystatic → Care Team).
+const raw = await getTeam();
+const doctors = raw
+  .map((d) => ({ slug: d.slug, ...d.entry }))
+  .sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
+---
+
+<section id="team" class="py-16 sm:py-24 bg-white fade-on-scroll">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <SectionHeading eyebrow="Meet the Team">
+      <Fragment slot="title">Our <span class="gradient-text">Care Team</span></Fragment>
+      <Fragment slot="subtitle">Our experienced, compassionate doctors bring a wealth of expertise across all areas of general practice and specialised medicine.</Fragment>
+    </SectionHeading>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+      {doctors.map((doctor) => (
+        <DoctorCard
+          slug={doctor.slug}
+          name={doctor.name}
+          credentials={doctor.credentials}
+          photo={doctor.photo}
+          bio={doctor.bio}
+          interests={doctor.interests}
+        />
+      ))}
+    </div>
+
+    <div class="text-center mt-12">
+      <a href="/care-team" class="gradient-bg text-white px-8 py-3.5 rounded-full font-bold text-base shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200 inline-block">
+        Meet the Full Team
+      </a>
+    </div>
+  </div>
+</section>

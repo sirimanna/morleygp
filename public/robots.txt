@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://morleygp.com.au/sitemap-index.xml
