@@ -5,7 +5,7 @@ export default config({
   // To edit locally without GitHub auth, temporarily switch back to { kind: 'local' }.
   storage: {
     kind: 'github',
-    repo: 'github.com/sirimanna/morleygp',
+    repo: 'sirimanna/morleygp',
   },
   singletons: {
     business: singleton({

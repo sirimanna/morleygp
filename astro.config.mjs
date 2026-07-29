@@ -15,7 +15,10 @@ const isBuild = process.argv.includes('build');
 // https://astro.build/config
 export default defineConfig({
   site: 'https://morleygp.com.au',
-  ...(isBuild ? { adapter: cloudflare() } : {}),
+  // prerenderEnvironment: 'node' runs the build-time prerender in Node so the
+  // Keystatic reader (node:fs / node:path) works. nodejs_compat in wrangler.jsonc
+  // covers the runtime admin routes on the worker.
+  ...(isBuild ? { adapter: cloudflare({ prerenderEnvironment: 'node' }) } : {}),
   integrations: [react(), markdoc(), keystatic(), sitemap()],
   vite: {
     plugins: [tailwindcss()],
