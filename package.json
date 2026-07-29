@@ -7,9 +7,10 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "node scripts/patch-keystatic-cf.cjs && astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "postinstall": "node scripts/patch-keystatic-cf.cjs",
     "generate-types": "wrangler types"
   },
   "dependencies": {
