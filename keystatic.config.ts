@@ -7,6 +7,10 @@ export default config({
     kind: 'github',
     repo: 'sirimanna/morleygp',
   },
+  ui: {
+    // Replaces the "sirimanna/morleygp" repo label in the admin sidebar.
+    brand: { name: 'MorleyGP' },
+  },
   singletons: {
     business: singleton({
       label: 'Business details',
