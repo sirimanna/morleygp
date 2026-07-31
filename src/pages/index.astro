@@ -25,14 +25,7 @@ const site = await getSite();
         <img src={site.logo} alt={site.name} class="wip-logo" />
         <span class="wip-badge">Launching soon</span>
         <h1>Our new website is on its way</h1>
-        <p>Thanks for visiting {site.name}. We are putting the finishing touches on our new website. In the meantime, you can reach us directly.</p>
-        <div class="wip-actions">
-          {site.hotdocUrl && (
-            <a class="btn-primary" href={site.hotdocUrl} target="_blank" rel="noopener noreferrer">Book an Appointment</a>
-          )}
-          {site.phone && <a class="btn-ghost" href={site.phoneHref}>Call {site.phone}</a>}
-        </div>
-        {site.address && <p class="wip-addr">📍 {site.address}</p>}
+        <p>Thanks for visiting {site.name}. We are putting the finishing touches on our new website and will be live soon.</p>
       </div>
     </main>
 
