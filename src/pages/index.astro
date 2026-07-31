@@ -1,46 +1,117 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Hero from '../components/home/Hero.astro';
-import QuickInfo from '../components/home/QuickInfo.astro';
-import ServicesSection from '../components/home/ServicesSection.astro';
-import AboutSection from '../components/home/AboutSection.astro';
-import TeamSection from '../components/home/TeamSection.astro';
-import ReviewsSection from '../components/home/ReviewsSection.astro';
-import LocationSection from '../components/home/LocationSection.astro';
-import CtaBanner from '../components/home/CtaBanner.astro';
+// TEMPORARY pre-launch landing. Public visitors to "/" see this coming-soon page.
+// The real home page lives at /home for stakeholder review.
+// To go live: replace this file with the content of src/pages/home.astro,
+// delete home.astro, and revert the Home links back to "/" (see home.astro note).
+import '../styles/global.css';
 import { getSite } from '../lib/content';
 
 const site = await getSite();
-
-// LocalBusiness / MedicalClinic structured data for SEO.
-const schema = {
-  '@context': 'https://schema.org',
-  '@type': 'MedicalClinic',
-  name: site.name,
-  telephone: site.phone,
-  email: site.email,
-  url: 'https://morleygp.com.au',
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: '26 McGilvray Ave',
-    addressLocality: 'Morley',
-    addressRegion: 'WA',
-    postalCode: '6062',
-    addressCountry: 'AU',
-  },
-  openingHours: ['Mo-Fr 08:30-17:30', 'Sa 08:30-12:30', 'Su 09:00-12:00'],
-};
 ---
 
-<Layout>
-  <script type="application/ld+json" set:html={JSON.stringify(schema)} slot="head" />
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{site.name} — Website coming soon</title>
+    <meta name="description" content={`${site.name} — our new website is on its way. Contact us directly in the meantime.`} />
+  </head>
+  <body>
+    <main class="wip">
+      <div class="wip-inner">
+        <img src={site.logo} alt={site.name} class="wip-logo" />
+        <span class="wip-badge">Launching soon</span>
+        <h1>Our new website is on its way</h1>
+        <p>Thanks for visiting {site.name}. We are putting the finishing touches on our new website. In the meantime, you can reach us directly.</p>
+        <div class="wip-actions">
+          {site.hotdocUrl && (
+            <a class="btn-primary" href={site.hotdocUrl} target="_blank" rel="noopener noreferrer">Book an Appointment</a>
+          )}
+          {site.phone && <a class="btn-ghost" href={site.phoneHref}>Call {site.phone}</a>}
+        </div>
+        {site.address && <p class="wip-addr">📍 {site.address}</p>}
+      </div>
+    </main>
 
-  <Hero />
-  <QuickInfo />
-  <ServicesSection />
-  <AboutSection />
-  <TeamSection />
-  <ReviewsSection />
-  <LocationSection />
-  <CtaBanner />
-</Layout>
+    <style>
+      html, body { margin: 0; }
+      .wip {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 24px;
+        background: linear-gradient(135deg, #1a3a6e 0%, #3b6ec9 40%, #8865a9 100%);
+        color: #fff;
+      }
+      .wip-inner { max-width: 640px; }
+      .wip-logo {
+        height: 64px;
+        width: auto;
+        object-fit: contain;
+        margin: 0 auto 28px;
+        filter: brightness(0) invert(1);
+      }
+      .wip-badge {
+        display: inline-block;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        background: rgba(255, 255, 255, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        padding: 6px 14px;
+        border-radius: 999px;
+        margin-bottom: 20px;
+      }
+      .wip h1 {
+        font-family: var(--font-display, ui-sans-serif, system-ui, sans-serif);
+        font-size: clamp(2rem, 5vw, 3.2rem);
+        font-weight: 900;
+        line-height: 1.1;
+        margin: 0 0 16px;
+      }
+      .wip p {
+        font-size: 1.05rem;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.85);
+        margin: 0 auto 12px;
+        max-width: 34rem;
+      }
+      .wip-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        justify-content: center;
+        margin: 28px 0 8px;
+      }
+      .btn-primary {
+        background: #fff;
+        color: #3b6ec9;
+        font-weight: 800;
+        padding: 14px 30px;
+        border-radius: 999px;
+        text-decoration: none;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
+      .btn-ghost {
+        background: rgba(255, 255, 255, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        color: #fff;
+        font-weight: 700;
+        padding: 14px 30px;
+        border-radius: 999px;
+        text-decoration: none;
+      }
+      .wip-addr {
+        font-size: 0.95rem;
+        color: rgba(255, 255, 255, 0.7);
+        margin-top: 18px;
+      }
+    </style>
+  </body>
+</html>

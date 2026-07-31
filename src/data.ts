@@ -10,7 +10,8 @@ export const MAP_EMBED =
   'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3385.4!2d115.9028!3d-31.8897!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2a32bad8b38bdd2b%3A0x504f0b535df4f90!2s26%20McGilvray%20Ave%2C%20Morley%20WA%206062!5e0!3m2!1sen!2sau!4v1';
 
 export const NAV_LINKS = [
-  { label: 'Home', href: '/' },
+  // TEMPORARY: Home points to /home during pre-launch. Revert to '/' at go-live.
+  { label: 'Home', href: '/home' },
   { label: 'Services', href: '/services' },
   { label: 'Our Care Team', href: '/care-team' },
   { label: 'News', href: '/news' },
