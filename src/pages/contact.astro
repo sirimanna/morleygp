@@ -7,10 +7,10 @@ const site = await getSite();
 const hours = await getHours();
 
 const cards = [
-  { icon: '📍', label: 'Address', value: '26 McGilvray Ave', sub: 'Morley WA 6062', href: 'https://maps.google.com/?q=26+McGilvray+Ave+Morley+WA+6062' },
-  { icon: '📞', label: 'Phone', value: site.phone, sub: 'Mon–Sun during hours', href: site.phoneHref },
-  { icon: '✉️', label: 'Email', value: site.email, sub: 'General enquiries', href: `mailto:${site.email}` },
-  { icon: '🕐', label: 'Opening Hours', value: 'Open 7 Days', sub: 'Mon–Fri · Sat · Sun', href: null },
+  { icon: 'ri-map-pin-line', label: 'Address', value: '26 McGilvray Ave', sub: 'Morley WA 6062', href: 'https://maps.google.com/?q=26+McGilvray+Ave+Morley+WA+6062' },
+  { icon: 'ri-phone-line', label: 'Phone', value: site.phone, sub: 'Mon–Sun during hours', href: site.phoneHref },
+  { icon: 'ri-mail-line', label: 'Email', value: site.email, sub: 'General enquiries', href: `mailto:${site.email}` },
+  { icon: 'ri-time-line', label: 'Opening Hours', value: 'Open 7 Days', sub: 'Mon–Fri · Sat · Sun', href: null },
 ];
 ---
 
@@ -29,7 +29,7 @@ const cards = [
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-16">
       {cards.map((item) => (
         <div class="gradient-bg-soft rounded-2xl p-6 flex flex-col items-center text-center gap-3">
-          <div class="w-12 h-12 gradient-bg rounded-xl text-white flex items-center justify-center shadow-sm text-xl">{item.icon}</div>
+          <div class="w-12 h-12 gradient-bg rounded-xl text-white flex items-center justify-center shadow-sm text-xl"><i class={item.icon}></i></div>
           <div>
             <div class="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-1">{item.label}</div>
             {item.href
@@ -61,7 +61,7 @@ const cards = [
         </div>
 
         <div class="bg-gray-900 text-white rounded-2xl p-5 flex gap-4 items-start">
-          <span class="text-2xl mt-0.5">🚨</span>
+          <i class="ri-alarm-warning-line text-2xl mt-0.5 text-amber-400"></i>
           <div>
             <h4 class="font-bold mb-1">After Hours</h4>
             <p class="text-gray-300 text-sm leading-relaxed">In case of emergency call <strong class="text-white">000</strong>. After-hours home visits: <a href="tel:1300644483" class="text-[#8865A9] font-semibold hover:underline">Night Doctors — 1300 644 483</a>.</p>
@@ -72,7 +72,7 @@ const cards = [
       <!-- Form -->
       <div class="bg-white border border-gray-100 rounded-3xl p-8 shadow-sm">
         <div id="contact-success" class="text-center py-12 hidden">
-          <div class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center text-white text-3xl mx-auto mb-4 shadow-lg">✓</div>
+          <div class="w-16 h-16 gradient-bg rounded-full flex items-center justify-center text-white text-3xl mx-auto mb-4 shadow-lg"><i class="ri-check-line"></i></div>
           <h3 class="text-xl font-black text-gray-900 mb-2">Message Sent!</h3>
           <p class="text-gray-500 text-sm">Thanks for reaching out. Our team will get back to you within one business day.</p>
         </div>
@@ -103,7 +103,7 @@ const cards = [
           </form>
           <p class="text-xs text-gray-400 mt-4 text-center">
             Prefer to book an appointment?
-            {site.hotdocUrl && <a href={site.hotdocUrl} target="_blank" rel="noopener noreferrer" class="text-[#3B6EC9] font-semibold hover:underline">Use HotDoc →</a>}
+            {site.hotdocUrl && <a href={site.hotdocUrl} target="_blank" rel="noopener noreferrer" class="text-[#3B6EC9] font-semibold hover:underline">Use HotDoc <i class="ri-arrow-right-line align-middle"></i></a>}
           </p>
         </div>
       </div>

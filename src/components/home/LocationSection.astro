@@ -5,9 +5,9 @@ const site = await getSite();
 const hours = await getHours();
 
 const contact = [
-  { label: 'Address', value: site.address, icon: '📍' },
-  { label: 'Phone', value: site.phone, href: site.phoneHref, icon: '📞' },
-  { label: 'Email', value: site.email, href: `mailto:${site.email}`, icon: '✉️' },
+  { label: 'Address', value: site.address, icon: 'ri-map-pin-line' },
+  { label: 'Phone', value: site.phone, href: site.phoneHref, icon: 'ri-phone-line' },
+  { label: 'Email', value: site.email, href: `mailto:${site.email}`, icon: 'ri-mail-line' },
 ];
 ---
 
@@ -31,7 +31,7 @@ const contact = [
           <ul class="space-y-4">
             {contact.map((item) => (
               <li class="flex items-start gap-3">
-                <span class="w-9 h-9 rounded-xl gradient-bg text-white flex items-center justify-center flex-shrink-0 text-sm">{item.icon}</span>
+                <span class="w-9 h-9 rounded-xl gradient-bg text-white flex items-center justify-center flex-shrink-0 text-sm"><i class={item.icon}></i></span>
                 <div>
                   <div class="text-xs text-gray-400 font-medium uppercase tracking-wide">{item.label}</div>
                   {item.href

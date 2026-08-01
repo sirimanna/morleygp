@@ -36,13 +36,13 @@ export async function getArticles() {
     .sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
 }
 
-// Consultation fee schedule. Managed in Keystatic → Consultation Fees.
+// Consultation fee schedule. Managed in Keystatic -> Consultation Fees.
 export async function getFees() {
   const data = await reader.singletons.fees.read();
   return data?.rows ?? [];
 }
 
-// Opening hours, normalised for display. Managed in Keystatic → Business details.
+// Opening hours, normalised for display. Managed in Keystatic -> Business details.
 export async function getHours() {
   const biz = await getBusiness();
   return (biz?.hours ?? []).map((row) => ({

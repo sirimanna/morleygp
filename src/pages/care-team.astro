@@ -47,7 +47,7 @@ const site = await getSite();
                 )}
                 {doctor.languages && doctor.languages.length > 1 && (
                   <span class="text-xs font-semibold px-3 py-1.5 rounded-full bg-purple-50 text-purple-700 border border-purple-100">
-                    🌐 {doctor.languages.join(' · ')}
+                    <i class="ri-global-line"></i> {doctor.languages.join(' · ')}
                   </span>
                 )}
               </div>
@@ -61,7 +61,7 @@ const site = await getSite();
                 {doctor.interests.map((interest) => (
                   <div class="flex items-center gap-2">
                     <span class="w-5 h-5 rounded-full gradient-bg flex items-center justify-center flex-shrink-0">
-                      <svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2" class="w-3 h-3"><path d="M2 6l2.5 2.5 5.5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                      <i class="ri-check-line text-white text-xs"></i>
                     </span>
                     <span class="text-sm text-gray-700">{interest}</span>
                   </div>
@@ -71,7 +71,7 @@ const site = await getSite();
 
             {doctor.billingNote && (
               <div class="flex items-start gap-2 bg-blue-50 rounded-xl px-4 py-3 mb-6">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#3B6EC9" stroke-width="2" class="w-4 h-4 flex-shrink-0 mt-0.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01" stroke-linecap="round"/></svg>
+                <i class="ri-information-line text-[#3B6EC9] text-base flex-shrink-0 mt-0.5"></i>
                 <p class="text-xs text-blue-800 leading-relaxed">{doctor.billingNote}</p>
               </div>
             )}
@@ -79,12 +79,12 @@ const site = await getSite();
             <div class="flex flex-wrap gap-3">
               <a href={`/doctor/${doctor.slug}`} class="gradient-bg text-white px-6 py-2.5 rounded-full font-bold text-sm shadow-md hover:shadow-lg hover:scale-105 transition-all duration-200 flex items-center gap-2">
                 View Full Profile
-                <svg viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+                <i class="ri-arrow-right-line"></i>
               </a>
               {site.hotdocUrl && (
                 <a href={site.hotdocUrl} target="_blank" rel="noopener noreferrer"
                   class="border-2 px-6 py-2.5 rounded-full font-bold text-sm hover:bg-blue-50 transition-all duration-200 flex items-center gap-2" style="border-color: #3B6EC9; color: #3B6EC9">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2z" stroke-linecap="round"/></svg>
+                  <i class="ri-calendar-check-line"></i>
                   Book Appointment
                 </a>
               )}

@@ -4,10 +4,10 @@ import { getSite } from '../../lib/content';
 const site = await getSite();
 
 const items = [
-  { icon: '📍', label: 'Location', value: 'Morley, Perth WA' },
-  { icon: '🕐', label: 'Hours', value: 'Open 7 Days a Week' },
-  { icon: '📞', label: 'Phone', value: site.phone },
-  { icon: '🌐', label: 'Online Booking', value: 'Book via HotDoc' },
+  { icon: 'ri-map-pin-line', label: 'Location', value: 'Morley, Perth WA' },
+  { icon: 'ri-time-line', label: 'Hours', value: 'Open 7 Days a Week' },
+  { icon: 'ri-phone-line', label: 'Phone', value: site.phone },
+  { icon: 'ri-global-line', label: 'Online Booking', value: 'Book via HotDoc' },
 ];
 ---
 
@@ -16,7 +16,7 @@ const items = [
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
       {items.map((item) => (
         <div class="flex items-center gap-3">
-          <span class="text-2xl flex-shrink-0">{item.icon}</span>
+          <i class={`${item.icon} text-2xl text-[#3B6EC9] flex-shrink-0`}></i>
           <div>
             <div class="text-xs text-gray-500 font-medium uppercase tracking-wide">{item.label}</div>
             <div class="text-sm font-semibold text-gray-800">{item.value}</div>

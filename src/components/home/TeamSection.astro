@@ -3,7 +3,7 @@ import { getTeam } from '../../lib/content';
 import SectionHeading from '../ui/SectionHeading.astro';
 import DoctorCard from '../ui/DoctorCard.astro';
 
-// Doctors are managed in Keystatic (/keystatic → Care Team).
+// Doctors are managed in Keystatic (/keystatic -> Care Team).
 const raw = await getTeam();
 const doctors = raw
   .map((d) => ({ slug: d.slug, ...d.entry }))
