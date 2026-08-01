@@ -1,7 +1,10 @@
 ---
-import { getSite } from '../../lib/content';
+import { getSite, getHours } from '../../lib/content';
+import { buildWeeklySchedule } from '../../lib/openStatus';
 
 const site = await getSite();
+// Machine-readable opening hours for the live "Book Now" status line (computed in Perth time, browser-side).
+const schedule = buildWeeklySchedule(await getHours());
 
 // Split the slogan on the first comma so the second half can be accented.
 const [sloganLead, ...sloganRest] = (site.slogan || 'Your Health, Our Priority').split(',');
@@ -43,10 +46,10 @@ const badges = [
           <span class="text-lg font-black tracking-wide leading-none">Book Now</span>
           <span class="flex items-center gap-1.5 mt-1.5">
             <span class="relative flex h-2 w-2">
-              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-              <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+              <span id="clinic-status-ping" class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75 hidden"></span>
+              <span id="clinic-status-dot" class="relative inline-flex rounded-full h-2 w-2 bg-[#3B6EC9]"></span>
             </span>
-            <span class="text-xs font-semibold text-green-600 tracking-wide leading-none">Open Now</span>
+            <span id="clinic-status-text" class="text-xs font-semibold text-[#3B6EC9] tracking-wide leading-none">Book online 24/7</span>
           </span>
         </a>
         <a href={site.phoneHref}
@@ -101,4 +104,66 @@ const badges = [
       <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" />
     </svg>
   </div>
+
+  <script define:vars={{ schedule }}>
+    const DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    const DMAP = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 };
+
+    // Current weekday + minutes-since-midnight in Perth, regardless of the visitor's own timezone.
+    function perthNow() {
+      const parts = new Intl.DateTimeFormat('en-US', {
+        timeZone: 'Australia/Perth', weekday: 'short', hour: '2-digit', minute: '2-digit', hour12: false,
+      }).formatToParts(new Date());
+      let wd = 0, h = 0, m = 0;
+      for (const p of parts) {
+        if (p.type === 'weekday') wd = DMAP[p.value] ?? 0;
+        else if (p.type === 'hour') h = parseInt(p.value, 10) % 24;
+        else if (p.type === 'minute') m = parseInt(p.value, 10);
+      }
+      return { wd, mins: h * 60 + m };
+    }
+
+    function fmtTime(mins) {
+      const h = Math.floor(mins / 60), m = mins % 60;
+      const ap = h >= 12 ? 'pm' : 'am';
+      let hh = h % 12; if (hh === 0) hh = 12;
+      return m === 0 ? `${hh}${ap}` : `${hh}:${String(m).padStart(2, '0')}${ap}`;
+    }
+
+    // The next time the clinic opens: later today, tomorrow, or the next open weekday.
+    function nextOpen(wd, mins) {
+      const today = schedule[wd];
+      if (today && mins < today.o) return { label: 'today', time: today.o };
+      for (let i = 1; i <= 7; i++) {
+        const d = (wd + i) % 7;
+        if (schedule[d]) return { label: i === 1 ? 'tomorrow' : DAYS[d], time: schedule[d].o };
+      }
+      return null;
+    }
+
+    function render() {
+      const dot = document.getElementById('clinic-status-dot');
+      const ping = document.getElementById('clinic-status-ping');
+      const text = document.getElementById('clinic-status-text');
+      if (!dot || !ping || !text) return;
+      const now = perthNow();
+      const s = schedule[now.wd];
+      const isOpen = s && now.mins >= s.o && now.mins < s.c;
+      if (isOpen) {
+        ping.classList.remove('hidden');
+        dot.className = 'relative inline-flex rounded-full h-2 w-2 bg-green-500';
+        text.textContent = 'Open now';
+        text.className = 'text-xs font-semibold text-green-600 tracking-wide leading-none';
+      } else {
+        ping.classList.add('hidden');
+        dot.className = 'relative inline-flex rounded-full h-2 w-2 bg-[#3B6EC9]';
+        const nx = nextOpen(now.wd, now.mins);
+        text.textContent = nx ? `Book ahead · Opens ${nx.label} ${fmtTime(nx.time)}` : 'Book online 24/7';
+        text.className = 'text-xs font-semibold text-[#3B6EC9] tracking-wide leading-none';
+      }
+    }
+
+    render();
+    setInterval(render, 60000);
+  </script>
 </section>
