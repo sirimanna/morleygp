@@ -1,11 +1,22 @@
 {
   "name": "Dr Ravi Ganepola",
   "credentials": "MD, FRACGP",
+  "photo": "/images/team/dr-ravi-ganepola/photo.jpg",
   "gender": "Male",
-  "languages": ["English", "Sinhala"],
+  "languages": [
+    "English",
+    "Sinhala"
+  ],
   "bio": "Dr Ravi is committed to providing high-quality, patient-centred care with a strong emphasis on clinical excellence and integrity to individuals and families across all life stages.",
   "detailedBio": "Dr Ravi Ganepola holds both an MD and FRACGP, reflecting his dedication to ongoing medical education and clinical excellence. He has broad experience across all areas of general practice and is particularly passionate about chronic disease management and preventive health. Dr Ravi believes that every patient deserves compassionate, dignified care, and he takes pride in building long-term relationships with his patients and their families.",
-  "interests": ["Family Medicine", "Chronic Disease Management", "Preventive Health", "Men's Health", "Paediatrics", "Diabetes Management"],
+  "interests": [
+    "Family Medicine",
+    "Chronic Disease Management",
+    "Preventive Health",
+    "Men's Health",
+    "Paediatrics",
+    "Diabetes Management"
+  ],
   "billingNote": "Bulk billing available for children under 12 on weekdays between 8:30am and 4:00pm.",
   "telehealth": true,
   "order": 3
