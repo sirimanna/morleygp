@@ -106,7 +106,12 @@ export default config({
       schema: {
         name: fields.slug({ name: { label: 'Name' } }),
         credentials: fields.text({ label: 'Credentials' }),
-        photo: fields.url({ label: 'Photo URL' }),
+        photo: fields.image({
+          label: 'Photo',
+          description: "Upload the doctor's headshot (portrait, ideally square or taller).",
+          directory: 'public/images/team',
+          publicPath: '/images/team/',
+        }),
         gender: fields.select({
           label: 'Gender',
           options: [
