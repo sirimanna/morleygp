@@ -10,7 +10,8 @@
   "social": {},
   "seo": {
     "title": "Morley General Practice | GP Clinic in Morley, Perth WA",
-    "description": "Compassionate GP care for Morley and Perth's northern suburbs. Bulk billing available, open 7 days. Book online via HotDoc."
+    "description": "Compassionate GP care for Morley and Perth's northern suburbs. Bulk billing available, open 7 days. Book online via HotDoc.",
+    "ogImage": "/images/social/morleygp-og.jpg"
   },
   "hours": [
     {
