@@ -146,7 +146,12 @@ export default config({
         desc: fields.text({ label: 'Short description', multiline: true }),
         detail: fields.text({ label: 'Listing detail', multiline: true }),
         fullDesc: fields.text({ label: 'Full description', multiline: true }),
-        image: fields.url({ label: 'Header image URL' }),
+        image: fields.image({
+          label: 'Header image',
+          description: 'Upload the header image for this service (wide, ideally 1200×500 or similar).',
+          directory: 'public/images/services',
+          publicPath: '/images/services/',
+        }),
         features: fields.array(fields.text({ label: 'Feature' }), {
           label: "What's included",
           itemLabel: (props) => props.value,

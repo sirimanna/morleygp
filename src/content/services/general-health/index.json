@@ -3,7 +3,7 @@
   "desc": "Comprehensive check-ups, preventive care, and management of acute and chronic conditions for the whole family.",
   "detail": "Our GPs provide thorough assessments and personalised health plans to keep you and your family well. From routine physicals to acute illness management, we are here for all your general health needs.",
   "fullDesc": "General health consultations at Morley General Practice cover everything from routine annual check-ups and preventive care to the management of acute illnesses and injuries. Our experienced GPs take the time to listen, examine, and develop personalised health plans that work for your unique situation. Whether you're visiting for a quick illness, renewing a prescription, or managing a complex health concern, you'll receive attentive, evidence-based care every time.",
-  "image": "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=1200&h=500&fit=crop&auto=format",
+  "image": "/images/services/general-health/image.jpg",
   "features": [
     "Routine health check-ups",
     "Acute illness management",
