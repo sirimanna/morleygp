@@ -183,7 +183,12 @@ export default config({
         readTime: fields.text({ label: 'Read time', description: 'e.g. 3 min read' }),
         excerpt: fields.text({ label: 'Excerpt', multiline: true }),
         body: fields.text({ label: 'Body', multiline: true }),
-        image: fields.url({ label: 'Image URL' }),
+        image: fields.image({
+          label: 'Image',
+          description: 'Upload the article image (wide, ideally 800×500 or similar).',
+          directory: 'public/images/news',
+          publicPath: '/images/news/',
+        }),
         featured: fields.checkbox({ label: 'Featured article', defaultValue: false }),
         order: fields.integer({ label: 'Display order', defaultValue: 1 }),
       },
